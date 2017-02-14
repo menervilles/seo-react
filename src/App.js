@@ -11,22 +11,37 @@ const userData = appData.user;
 class App extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      user : {}
-    }
-    console.log("INIT App component state", this.state);
+      user : {},
+      message : null,
+      el : null
+    };
+    window.setTimeout(() => this.setState({
+        message: 'Une message avec set timeout',
+        el: <a href="http://www.twitter.fr" target="_blank"> Lien à suivre avec un set timeout</a>
+      }),
+      5000
+    );
+    console.log("INIT state", this.state);
   }
 
   componentWillMount() {
     this.setState({
       user : userData
-    })
-    console.log("CWM App component state", this.state);
+    });
+    console.log("CWM state", this.state);
+  }
+
+  componentDidMount() {
+    console.log("CDM state", this.state);
   }
 
   _buildLink() {
-    return <Link to="/one">Sous page</Link>
+    return (<div>
+        <Link to="/one">Sous page routeur-react</Link>
+        <Link to="/two">Sous page-2 routeur-react</Link>
+    </div>)
   }
 
   render() {
@@ -41,6 +56,8 @@ class App extends Component {
         <p className="App-intro">{this.state.user.email}</p>
         <p className="App-intro">{this.state.user.address}</p>
         <p className="App-intro">{this.state.user.postCode}</p>
+        <p className="">{this.state.message}</p>
+        <div className="">{this.state.el}</div>
         {this._buildLink()}
       </div>
     );
