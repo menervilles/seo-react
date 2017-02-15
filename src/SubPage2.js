@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SubPage2 extends Component {
-
-  render() {
-    return (
-      <div className="sub-page-2">
-        Blablabla de sub-page-2
-      </div>
-    );
-  }
+const SubPage2 = () => {
+  return (
+    <div className="sub-page-2">
+      Blablabla de sub-page-2
+    </div>
+  );
 }
 
 export default SubPage2;

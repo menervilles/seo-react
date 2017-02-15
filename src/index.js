@@ -32,6 +32,6 @@ var routesConfig = [
 ]
 
 ReactDOM.render(
-  <Router history={browserHistory} routes={routesConfig} />,
+  <Router history={hashHistory} routes={routesConfig} />,
   document.getElementById('root')
 );
